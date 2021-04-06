@@ -13,6 +13,7 @@ namespace CleanArch.Mvc.Controllers
         {
             _courseService = courseService;
         }
+
         public IActionResult Index()
         {
             CourseViewModel model = _courseService.GetCourses();
