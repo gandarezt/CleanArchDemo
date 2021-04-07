@@ -14,7 +14,6 @@ namespace CleanArch.Application.Services
         }
         public CourseViewModel GetCourses()
         {
-
             return new CourseViewModel()
             {
                 Courses = _courseRepository.GetCourses()
