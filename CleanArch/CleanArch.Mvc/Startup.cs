@@ -1,6 +1,7 @@
 using CleanArch.Infra.Data.Context;
 using CleanArch.Infra.IoC;
 using CleanArch.Mvc.Data;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -35,6 +36,9 @@ namespace CleanArch.Mvc
             {
                 options.UseSqlServer(Configuration.GetConnectionString("UniversityDbConnection"));
             });
+
+
+            services.AddMediatR(typeof(Startup));
 
             RegisterServices(services);
         }
@@ -71,9 +75,6 @@ namespace CleanArch.Mvc
 
         }
 
-        private static void RegisterServices(IServiceCollection services)
-        {
-            DependencyContainer.RegisterServices(services);
-        }
+        private static void RegisterServices(IServiceCollection services) => DependencyContainer.RegisterServices(services);
     }
 }
